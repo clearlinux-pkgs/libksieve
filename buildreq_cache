@@ -1,0 +1,12 @@
+18.08.0
+cyrus-sasl-dev
+kidentitymanagement-dev
+kimap-dev
+kmailtransport-dev
+kmime-dev
+kpimtextedit-dev
+libkdepim-dev
+pimcommon-dev
+pkgconfig(libsasl2)
+qtwebengine-dev
+syntax-highlighting-dev
