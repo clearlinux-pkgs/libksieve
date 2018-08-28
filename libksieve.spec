@@ -6,7 +6,7 @@
 #
 Name     : libksieve
 Version  : 18.08.0
-Release  : 2
+Release  : 3
 URL      : https://download.kde.org/stable/applications/18.08.0/src/libksieve-18.08.0.tar.xz
 Source0  : https://download.kde.org/stable/applications/18.08.0/src/libksieve-18.08.0.tar.xz
 Source99 : https://download.kde.org/stable/applications/18.08.0/src/libksieve-18.08.0.tar.xz.sig
@@ -98,7 +98,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1535305516
+export SOURCE_DATE_EPOCH=1535434294
 mkdir clr-build
 pushd clr-build
 %cmake ..
@@ -106,7 +106,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1535305516
+export SOURCE_DATE_EPOCH=1535434294
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/doc/libksieve
 cp COPYING %{buildroot}/usr/share/doc/libksieve/COPYING
@@ -125,6 +125,9 @@ popd
 /usr/share/kservices5/sieve.protocol
 /usr/share/sieve/scripts/copy/template.desktop
 /usr/share/sieve/scripts/copy/template.txt
+/usr/share/xdg/ksieve_script.knsrc
+/usr/share/xdg/libksieve.categories
+/usr/share/xdg/libksieve.renamecategories
 
 %files dev
 %defattr(-,root,root,-)
