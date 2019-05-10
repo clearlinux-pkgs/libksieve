@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xDBD2CE893E2D1C87 (cfeck@kde.org)
 #
 Name     : libksieve
-Version  : 19.04.0
-Release  : 6
-URL      : https://download.kde.org/stable/applications/19.04.0/src/libksieve-19.04.0.tar.xz
-Source0  : https://download.kde.org/stable/applications/19.04.0/src/libksieve-19.04.0.tar.xz
-Source99 : https://download.kde.org/stable/applications/19.04.0/src/libksieve-19.04.0.tar.xz.sig
+Version  : 19.04.1
+Release  : 7
+URL      : https://download.kde.org/stable/applications/19.04.1/src/libksieve-19.04.1.tar.xz
+Source0  : https://download.kde.org/stable/applications/19.04.1/src/libksieve-19.04.1.tar.xz
+Source99 : https://download.kde.org/stable/applications/19.04.1/src/libksieve-19.04.1.tar.xz.sig
 Summary  : KDE PIM library for managing sieves
 Group    : Development/Tools
 License  : GPL-2.0 LGPL-2.1
@@ -19,6 +19,7 @@ Requires: libksieve-license = %{version}-%{release}
 Requires: libksieve-locales = %{version}-%{release}
 BuildRequires : buildreq-cmake
 BuildRequires : buildreq-kde
+BuildRequires : cyrus-sasl-dev
 BuildRequires : extra-cmake-modules pkgconfig(libsasl2)
 BuildRequires : kidentitymanagement-dev
 BuildRequires : kimap-dev
@@ -27,6 +28,7 @@ BuildRequires : kmime-dev
 BuildRequires : kpimtextedit-dev
 BuildRequires : libkdepim-dev
 BuildRequires : pimcommon-dev
+BuildRequires : pkgconfig(libsasl2)
 BuildRequires : qtbase-dev mesa-dev
 BuildRequires : qtwebengine-dev
 BuildRequires : syntax-highlighting-dev
@@ -50,6 +52,7 @@ Group: Development
 Requires: libksieve-lib = %{version}-%{release}
 Requires: libksieve-data = %{version}-%{release}
 Provides: libksieve-devel = %{version}-%{release}
+Requires: libksieve = %{version}-%{release}
 Requires: libksieve = %{version}-%{release}
 
 %description dev
@@ -91,22 +94,29 @@ locales components for the libksieve package.
 
 
 %prep
-%setup -q -n libksieve-19.04.0
+%setup -q -n libksieve-19.04.1
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1555724548
+export SOURCE_DATE_EPOCH=1557501030
 mkdir -p clr-build
 pushd clr-build
+export AR=gcc-ar
+export RANLIB=gcc-ranlib
+export NM=gcc-nm
+export CFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
+export FCFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
+export FFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
+export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=4 "
 %cmake ..
 make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1555724548
+export SOURCE_DATE_EPOCH=1557501030
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/libksieve
 cp COPYING %{buildroot}/usr/share/package-licenses/libksieve/COPYING
@@ -220,11 +230,11 @@ popd
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/libKF5KManageSieve.so.5
-/usr/lib64/libKF5KManageSieve.so.5.11.0
+/usr/lib64/libKF5KManageSieve.so.5.11.1
 /usr/lib64/libKF5KSieve.so.5
-/usr/lib64/libKF5KSieve.so.5.11.0
+/usr/lib64/libKF5KSieve.so.5.11.1
 /usr/lib64/libKF5KSieveUi.so.5
-/usr/lib64/libKF5KSieveUi.so.5.11.0
+/usr/lib64/libKF5KSieveUi.so.5.11.1
 /usr/lib64/qt5/plugins/kf5/kio/sieve.so
 
 %files license
