@@ -6,7 +6,7 @@
 #
 Name     : libksieve
 Version  : 19.12.0
-Release  : 14
+Release  : 15
 URL      : https://download.kde.org/stable/release-service/19.12.0/src/libksieve-19.12.0.tar.xz
 Source0  : https://download.kde.org/stable/release-service/19.12.0/src/libksieve-19.12.0.tar.xz
 Source1  : https://download.kde.org/stable/release-service/19.12.0/src/libksieve-19.12.0.tar.xz.sig
@@ -102,7 +102,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1576603331
+export SOURCE_DATE_EPOCH=1576603916
 mkdir -p clr-build
 pushd clr-build
 # -Werror is for werrorists
@@ -119,7 +119,7 @@ make  %{?_smp_mflags}  VERBOSE=1
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1576603331
+export SOURCE_DATE_EPOCH=1576603916
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/libksieve
 cp %{_builddir}/libksieve-19.12.0/COPYING %{buildroot}/usr/share/package-licenses/libksieve/7c203dee3a03037da436df03c4b25b659c073976
