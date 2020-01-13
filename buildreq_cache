@@ -1,12 +1,9 @@
-19.12.0
-cyrus-sasl-dev
+19.12.1
 kidentitymanagement-dev
-kimap-dev
 kmailtransport-dev
 kmime-dev
 kpimtextedit-dev
 libkdepim-dev
 pimcommon-dev
-pkgconfig(libsasl2)
 qtwebengine-dev
 syntax-highlighting-dev
