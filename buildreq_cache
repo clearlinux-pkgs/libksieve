@@ -1,9 +1,2 @@
-20.04.0
-kidentitymanagement-dev
-kmailtransport-dev
-kmime-dev
-kpimtextedit-dev
-libkdepim-dev
-pimcommon-dev
+20.04.1
 qtwebengine-dev
-syntax-highlighting-dev
