@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xDBD2CE893E2D1C87 (cfeck@kde.org)
 #
 Name     : libksieve
-Version  : 20.04.2
-Release  : 21
-URL      : https://download.kde.org/stable/release-service/20.04.2/src/libksieve-20.04.2.tar.xz
-Source0  : https://download.kde.org/stable/release-service/20.04.2/src/libksieve-20.04.2.tar.xz
-Source1  : https://download.kde.org/stable/release-service/20.04.2/src/libksieve-20.04.2.tar.xz.sig
+Version  : 20.08.0
+Release  : 22
+URL      : https://download.kde.org/stable/release-service/20.08.0/src/libksieve-20.08.0.tar.xz
+Source0  : https://download.kde.org/stable/release-service/20.08.0/src/libksieve-20.08.0.tar.xz
+Source1  : https://download.kde.org/stable/release-service/20.08.0/src/libksieve-20.08.0.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : GPL-2.0 LGPL-2.1
@@ -98,15 +98,15 @@ locales components for the libksieve package.
 
 
 %prep
-%setup -q -n libksieve-20.04.2
-cd %{_builddir}/libksieve-20.04.2
+%setup -q -n libksieve-20.08.0
+cd %{_builddir}/libksieve-20.08.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1591970292
+export SOURCE_DATE_EPOCH=1597787499
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -118,15 +118,15 @@ export FCFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=4 "
 export FFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=4 "
 export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=4 "
 %cmake ..
-make  %{?_smp_mflags}  VERBOSE=1
+make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1591970292
+export SOURCE_DATE_EPOCH=1597787499
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/libksieve
-cp %{_builddir}/libksieve-20.04.2/COPYING %{buildroot}/usr/share/package-licenses/libksieve/7c203dee3a03037da436df03c4b25b659c073976
-cp %{_builddir}/libksieve-20.04.2/COPYING.LIB %{buildroot}/usr/share/package-licenses/libksieve/9a1929f4700d2407c70b507b3b2aaf6226a9543c
+cp %{_builddir}/libksieve-20.08.0/COPYING %{buildroot}/usr/share/package-licenses/libksieve/7c203dee3a03037da436df03c4b25b659c073976
+cp %{_builddir}/libksieve-20.08.0/COPYING.LIB %{buildroot}/usr/share/package-licenses/libksieve/9a1929f4700d2407c70b507b3b2aaf6226a9543c
 pushd clr-build
 %make_install
 popd
@@ -216,8 +216,14 @@ popd
 /usr/share/doc/HTML/en/kioslave5/sieve/index.docbook
 /usr/share/doc/HTML/es/kioslave5/sieve/index.cache.bz2
 /usr/share/doc/HTML/es/kioslave5/sieve/index.docbook
+/usr/share/doc/HTML/et/kioslave5/sieve/index.cache.bz2
+/usr/share/doc/HTML/et/kioslave5/sieve/index.docbook
+/usr/share/doc/HTML/fr/kioslave5/sieve/index.cache.bz2
+/usr/share/doc/HTML/fr/kioslave5/sieve/index.docbook
 /usr/share/doc/HTML/it/kioslave5/sieve/index.cache.bz2
 /usr/share/doc/HTML/it/kioslave5/sieve/index.docbook
+/usr/share/doc/HTML/ko/kioslave5/sieve/index.cache.bz2
+/usr/share/doc/HTML/ko/kioslave5/sieve/index.docbook
 /usr/share/doc/HTML/nl/kioslave5/sieve/index.cache.bz2
 /usr/share/doc/HTML/nl/kioslave5/sieve/index.docbook
 /usr/share/doc/HTML/pt/kioslave5/sieve/index.cache.bz2
@@ -236,11 +242,11 @@ popd
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/libKF5KManageSieve.so.5
-/usr/lib64/libKF5KManageSieve.so.5.14.2
+/usr/lib64/libKF5KManageSieve.so.5.15.0
 /usr/lib64/libKF5KSieve.so.5
-/usr/lib64/libKF5KSieve.so.5.14.2
+/usr/lib64/libKF5KSieve.so.5.15.0
 /usr/lib64/libKF5KSieveUi.so.5
-/usr/lib64/libKF5KSieveUi.so.5.14.2
+/usr/lib64/libKF5KSieveUi.so.5.15.0
 /usr/lib64/qt5/plugins/kf5/kio/sieve.so
 
 %files license
