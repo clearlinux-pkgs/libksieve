@@ -5,14 +5,14 @@
 # Source0 file verified with key 0xBB463350D6EF31EF (heiko@shruuf.de)
 #
 Name     : libksieve
-Version  : 20.12.3
-Release  : 27
-URL      : https://download.kde.org/stable/release-service/20.12.3/src/libksieve-20.12.3.tar.xz
-Source0  : https://download.kde.org/stable/release-service/20.12.3/src/libksieve-20.12.3.tar.xz
-Source1  : https://download.kde.org/stable/release-service/20.12.3/src/libksieve-20.12.3.tar.xz.sig
+Version  : 21.04.0
+Release  : 28
+URL      : https://download.kde.org/stable/release-service/21.04.0/src/libksieve-21.04.0.tar.xz
+Source0  : https://download.kde.org/stable/release-service/21.04.0/src/libksieve-21.04.0.tar.xz
+Source1  : https://download.kde.org/stable/release-service/21.04.0/src/libksieve-21.04.0.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
-License  : GPL-2.0 LGPL-2.0
+License  : BSD-3-Clause CC0-1.0 GPL-2.0 LGPL-2.0
 Requires: libksieve-data = %{version}-%{release}
 Requires: libksieve-lib = %{version}-%{release}
 Requires: libksieve-license = %{version}-%{release}
@@ -98,15 +98,15 @@ locales components for the libksieve package.
 
 
 %prep
-%setup -q -n libksieve-20.12.3
-cd %{_builddir}/libksieve-20.12.3
+%setup -q -n libksieve-21.04.0
+cd %{_builddir}/libksieve-21.04.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1618683719
+export SOURCE_DATE_EPOCH=1619218517
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -122,12 +122,14 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1618683719
+export SOURCE_DATE_EPOCH=1619218517
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/libksieve
-cp %{_builddir}/libksieve-20.12.3/LICENSES/GPL-2.0-only.txt %{buildroot}/usr/share/package-licenses/libksieve/2a638514c87c4923c0570c55822620fad56f2a33
-cp %{_builddir}/libksieve-20.12.3/LICENSES/GPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/libksieve/e712eadfab0d2357c0f50f599ef35ee0d87534cb
-cp %{_builddir}/libksieve-20.12.3/LICENSES/LGPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/libksieve/20079e8f79713dce80ab09774505773c926afa2a
+cp %{_builddir}/libksieve-21.04.0/CMakePresets.json.license %{buildroot}/usr/share/package-licenses/libksieve/29fb05b49e12a380545499938c4879440bd8851e
+cp %{_builddir}/libksieve-21.04.0/LICENSES/CC0-1.0.txt %{buildroot}/usr/share/package-licenses/libksieve/8287b608d3fa40ef401339fd907ca1260c964123
+cp %{_builddir}/libksieve-21.04.0/LICENSES/GPL-2.0-only.txt %{buildroot}/usr/share/package-licenses/libksieve/2a638514c87c4923c0570c55822620fad56f2a33
+cp %{_builddir}/libksieve-21.04.0/LICENSES/GPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/libksieve/e712eadfab0d2357c0f50f599ef35ee0d87534cb
+cp %{_builddir}/libksieve-21.04.0/LICENSES/LGPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/libksieve/20079e8f79713dce80ab09774505773c926afa2a
 pushd clr-build
 %make_install
 popd
@@ -243,17 +245,19 @@ popd
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/libKF5KManageSieve.so.5
-/usr/lib64/libKF5KManageSieve.so.5.16.3
+/usr/lib64/libKF5KManageSieve.so.5.17.0
 /usr/lib64/libKF5KSieve.so.5
-/usr/lib64/libKF5KSieve.so.5.16.3
+/usr/lib64/libKF5KSieve.so.5.17.0
 /usr/lib64/libKF5KSieveUi.so.5
-/usr/lib64/libKF5KSieveUi.so.5.16.3
+/usr/lib64/libKF5KSieveUi.so.5.17.0
 /usr/lib64/qt5/plugins/kf5/kio/sieve.so
 
 %files license
 %defattr(0644,root,root,0755)
 /usr/share/package-licenses/libksieve/20079e8f79713dce80ab09774505773c926afa2a
+/usr/share/package-licenses/libksieve/29fb05b49e12a380545499938c4879440bd8851e
 /usr/share/package-licenses/libksieve/2a638514c87c4923c0570c55822620fad56f2a33
+/usr/share/package-licenses/libksieve/8287b608d3fa40ef401339fd907ca1260c964123
 /usr/share/package-licenses/libksieve/e712eadfab0d2357c0f50f599ef35ee0d87534cb
 
 %files locales -f kio_sieve.lang -f libksieve.lang
