@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xBB463350D6EF31EF (heiko@shruuf.de)
 #
 Name     : libksieve
-Version  : 21.12.3
-Release  : 37
-URL      : https://download.kde.org/stable/release-service/21.12.3/src/libksieve-21.12.3.tar.xz
-Source0  : https://download.kde.org/stable/release-service/21.12.3/src/libksieve-21.12.3.tar.xz
-Source1  : https://download.kde.org/stable/release-service/21.12.3/src/libksieve-21.12.3.tar.xz.sig
+Version  : 22.04.0
+Release  : 38
+URL      : https://download.kde.org/stable/release-service/22.04.0/src/libksieve-22.04.0.tar.xz
+Source0  : https://download.kde.org/stable/release-service/22.04.0/src/libksieve-22.04.0.tar.xz
+Source1  : https://download.kde.org/stable/release-service/22.04.0/src/libksieve-22.04.0.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : BSD-3-Clause CC0-1.0 GPL-2.0 LGPL-2.0
@@ -34,14 +34,11 @@ BuildRequires : knewstuff-dev
 BuildRequires : kpimtextedit-dev
 BuildRequires : libkdepim-dev
 BuildRequires : pimcommon-dev
-BuildRequires : qtbase-dev mesa-dev
 BuildRequires : qtwebengine-dev
 BuildRequires : syntax-highlighting-dev
 
 %description
-This is a legacy code to read/write the old vacation scripts for KDE 4 version of kontact.
-If once this new version is rolled out, there is no need to keep the legacy way of read/write the vacation script,
-because it is not compatible to any other system. The only need to keep this code is for migration old vacation scripts to new one.
+No detailed description available
 
 %package data
 Summary: data components for the libksieve package.
@@ -98,15 +95,15 @@ locales components for the libksieve package.
 
 
 %prep
-%setup -q -n libksieve-21.12.3
-cd %{_builddir}/libksieve-21.12.3
+%setup -q -n libksieve-22.04.0
+cd %{_builddir}/libksieve-22.04.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1646603794
+export SOURCE_DATE_EPOCH=1650837644
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -122,15 +119,16 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1646603794
+export SOURCE_DATE_EPOCH=1650837644
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/libksieve
-cp %{_builddir}/libksieve-21.12.3/CMakePresets.json.license %{buildroot}/usr/share/package-licenses/libksieve/29fb05b49e12a380545499938c4879440bd8851e
-cp %{_builddir}/libksieve-21.12.3/LICENSES/CC0-1.0.txt %{buildroot}/usr/share/package-licenses/libksieve/8287b608d3fa40ef401339fd907ca1260c964123
-cp %{_builddir}/libksieve-21.12.3/LICENSES/GPL-2.0-only.txt %{buildroot}/usr/share/package-licenses/libksieve/2a638514c87c4923c0570c55822620fad56f2a33
-cp %{_builddir}/libksieve-21.12.3/LICENSES/GPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/libksieve/e712eadfab0d2357c0f50f599ef35ee0d87534cb
-cp %{_builddir}/libksieve-21.12.3/LICENSES/LGPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/libksieve/20079e8f79713dce80ab09774505773c926afa2a
-cp %{_builddir}/libksieve-21.12.3/metainfo.yaml.license %{buildroot}/usr/share/package-licenses/libksieve/7ff5a7dd2c915b2b34329c892e06917c5f82f3a4
+cp %{_builddir}/libksieve-22.04.0/CMakePresets.json.license %{buildroot}/usr/share/package-licenses/libksieve/c085897bc39e05746ffd2d889a6e84ff1b7ae2d9
+cp %{_builddir}/libksieve-22.04.0/LICENSES/BSD-3-Clause.txt %{buildroot}/usr/share/package-licenses/libksieve/9950d3fdce1cff1f71212fb5abd31453c6ee2f8c
+cp %{_builddir}/libksieve-22.04.0/LICENSES/CC0-1.0.txt %{buildroot}/usr/share/package-licenses/libksieve/8287b608d3fa40ef401339fd907ca1260c964123
+cp %{_builddir}/libksieve-22.04.0/LICENSES/GPL-2.0-only.txt %{buildroot}/usr/share/package-licenses/libksieve/2a638514c87c4923c0570c55822620fad56f2a33
+cp %{_builddir}/libksieve-22.04.0/LICENSES/GPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/libksieve/e712eadfab0d2357c0f50f599ef35ee0d87534cb
+cp %{_builddir}/libksieve-22.04.0/LICENSES/LGPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/libksieve/20079e8f79713dce80ab09774505773c926afa2a
+cp %{_builddir}/libksieve-22.04.0/metainfo.yaml.license %{buildroot}/usr/share/package-licenses/libksieve/7ff5a7dd2c915b2b34329c892e06917c5f82f3a4
 pushd clr-build
 %make_install
 popd
@@ -150,53 +148,53 @@ popd
 
 %files dev
 %defattr(-,root,root,-)
-/usr/include/KF5/KManageSieve/SieveJob
-/usr/include/KF5/KSieveUi/AbstractMoveImapFolderWidget
-/usr/include/KF5/KSieveUi/AbstractRegexpEditorLineEdit
-/usr/include/KF5/KSieveUi/AbstractSelectEmailLineEdit
-/usr/include/KF5/KSieveUi/CheckScriptJob
-/usr/include/KF5/KSieveUi/ManageSieveScriptsDialog
-/usr/include/KF5/KSieveUi/ManageSieveTreeView
-/usr/include/KF5/KSieveUi/ManageSieveWidget
-/usr/include/KF5/KSieveUi/MultiImapVacationDialog
-/usr/include/KF5/KSieveUi/MultiImapVacationManager
-/usr/include/KF5/KSieveUi/RenameScriptJob
-/usr/include/KF5/KSieveUi/SieveDebugDialog
-/usr/include/KF5/KSieveUi/SieveEditor
-/usr/include/KF5/KSieveUi/SieveEditorWidget
-/usr/include/KF5/KSieveUi/SieveImapAccountSettings
-/usr/include/KF5/KSieveUi/SieveImapInstance
-/usr/include/KF5/KSieveUi/SieveImapInstanceInterface
-/usr/include/KF5/KSieveUi/SieveImapInstanceInterfaceManager
-/usr/include/KF5/KSieveUi/SieveImapPasswordProvider
-/usr/include/KF5/KSieveUi/SieveTreeWidgetItem
-/usr/include/KF5/KSieveUi/Util
-/usr/include/KF5/KSieveUi/VacationManager
-/usr/include/KF5/kmanagesieve/kmanagesieve_export.h
-/usr/include/KF5/kmanagesieve/sievejob.h
-/usr/include/KF5/ksieveui/abstractmoveimapfolderwidget.h
-/usr/include/KF5/ksieveui/abstractregexpeditorlineedit.h
-/usr/include/KF5/ksieveui/abstractselectemaillineedit.h
-/usr/include/KF5/ksieveui/checkscriptjob.h
-/usr/include/KF5/ksieveui/ksieveui_export.h
-/usr/include/KF5/ksieveui/managesievescriptsdialog.h
-/usr/include/KF5/ksieveui/managesievetreeview.h
-/usr/include/KF5/ksieveui/managesievewidget.h
-/usr/include/KF5/ksieveui/multiimapvacationdialog.h
-/usr/include/KF5/ksieveui/multiimapvacationmanager.h
-/usr/include/KF5/ksieveui/renamescriptjob.h
-/usr/include/KF5/ksieveui/sievedebugdialog.h
-/usr/include/KF5/ksieveui/sieveeditor.h
-/usr/include/KF5/ksieveui/sieveeditorwidget.h
-/usr/include/KF5/ksieveui/sieveimapaccountsettings.h
-/usr/include/KF5/ksieveui/sieveimapinstance.h
-/usr/include/KF5/ksieveui/sieveimapinstanceinterface.h
-/usr/include/KF5/ksieveui/sieveimapinstanceinterfacemanager.h
-/usr/include/KF5/ksieveui/sieveimappasswordprovider.h
-/usr/include/KF5/ksieveui/sievetreewidgetitem.h
-/usr/include/KF5/ksieveui/util.h
-/usr/include/KF5/ksieveui/util_p.h
-/usr/include/KF5/ksieveui/vacationmanager.h
+/usr/include/KF5/KManageSieve/KManageSieve/SieveJob
+/usr/include/KF5/KManageSieve/kmanagesieve/kmanagesieve_export.h
+/usr/include/KF5/KManageSieve/kmanagesieve/sievejob.h
+/usr/include/KF5/KSieveUi/KSieveUi/AbstractMoveImapFolderWidget
+/usr/include/KF5/KSieveUi/KSieveUi/AbstractRegexpEditorLineEdit
+/usr/include/KF5/KSieveUi/KSieveUi/AbstractSelectEmailLineEdit
+/usr/include/KF5/KSieveUi/KSieveUi/CheckScriptJob
+/usr/include/KF5/KSieveUi/KSieveUi/ManageSieveScriptsDialog
+/usr/include/KF5/KSieveUi/KSieveUi/ManageSieveTreeView
+/usr/include/KF5/KSieveUi/KSieveUi/ManageSieveWidget
+/usr/include/KF5/KSieveUi/KSieveUi/MultiImapVacationDialog
+/usr/include/KF5/KSieveUi/KSieveUi/MultiImapVacationManager
+/usr/include/KF5/KSieveUi/KSieveUi/RenameScriptJob
+/usr/include/KF5/KSieveUi/KSieveUi/SieveDebugDialog
+/usr/include/KF5/KSieveUi/KSieveUi/SieveEditor
+/usr/include/KF5/KSieveUi/KSieveUi/SieveEditorWidget
+/usr/include/KF5/KSieveUi/KSieveUi/SieveImapAccountSettings
+/usr/include/KF5/KSieveUi/KSieveUi/SieveImapInstance
+/usr/include/KF5/KSieveUi/KSieveUi/SieveImapInstanceInterface
+/usr/include/KF5/KSieveUi/KSieveUi/SieveImapInstanceInterfaceManager
+/usr/include/KF5/KSieveUi/KSieveUi/SieveImapPasswordProvider
+/usr/include/KF5/KSieveUi/KSieveUi/SieveTreeWidgetItem
+/usr/include/KF5/KSieveUi/KSieveUi/Util
+/usr/include/KF5/KSieveUi/KSieveUi/VacationManager
+/usr/include/KF5/KSieveUi/ksieveui/abstractmoveimapfolderwidget.h
+/usr/include/KF5/KSieveUi/ksieveui/abstractregexpeditorlineedit.h
+/usr/include/KF5/KSieveUi/ksieveui/abstractselectemaillineedit.h
+/usr/include/KF5/KSieveUi/ksieveui/checkscriptjob.h
+/usr/include/KF5/KSieveUi/ksieveui/ksieveui_export.h
+/usr/include/KF5/KSieveUi/ksieveui/managesievescriptsdialog.h
+/usr/include/KF5/KSieveUi/ksieveui/managesievetreeview.h
+/usr/include/KF5/KSieveUi/ksieveui/managesievewidget.h
+/usr/include/KF5/KSieveUi/ksieveui/multiimapvacationdialog.h
+/usr/include/KF5/KSieveUi/ksieveui/multiimapvacationmanager.h
+/usr/include/KF5/KSieveUi/ksieveui/renamescriptjob.h
+/usr/include/KF5/KSieveUi/ksieveui/sievedebugdialog.h
+/usr/include/KF5/KSieveUi/ksieveui/sieveeditor.h
+/usr/include/KF5/KSieveUi/ksieveui/sieveeditorwidget.h
+/usr/include/KF5/KSieveUi/ksieveui/sieveimapaccountsettings.h
+/usr/include/KF5/KSieveUi/ksieveui/sieveimapinstance.h
+/usr/include/KF5/KSieveUi/ksieveui/sieveimapinstanceinterface.h
+/usr/include/KF5/KSieveUi/ksieveui/sieveimapinstanceinterfacemanager.h
+/usr/include/KF5/KSieveUi/ksieveui/sieveimappasswordprovider.h
+/usr/include/KF5/KSieveUi/ksieveui/sievetreewidgetitem.h
+/usr/include/KF5/KSieveUi/ksieveui/util.h
+/usr/include/KF5/KSieveUi/ksieveui/util_p.h
+/usr/include/KF5/KSieveUi/ksieveui/vacationmanager.h
 /usr/include/KF5/libksieve_version.h
 /usr/lib64/cmake/KF5LibKSieve/KF5LibKSieveConfig.cmake
 /usr/lib64/cmake/KF5LibKSieve/KF5LibKSieveConfigVersion.cmake
@@ -206,7 +204,6 @@ popd
 /usr/lib64/libKF5KSieve.so
 /usr/lib64/libKF5KSieveUi.so
 /usr/lib64/qt5/mkspecs/modules/qt_KManageSieve.pri
-/usr/lib64/qt5/mkspecs/modules/qt_KSieve.pri
 /usr/lib64/qt5/mkspecs/modules/qt_KSieveUi.pri
 
 %files doc
@@ -245,20 +242,21 @@ popd
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/libKF5KManageSieve.so.5
-/usr/lib64/libKF5KManageSieve.so.5.19.3
+/usr/lib64/libKF5KManageSieve.so.5.20.0
 /usr/lib64/libKF5KSieve.so.5
-/usr/lib64/libKF5KSieve.so.5.19.3
+/usr/lib64/libKF5KSieve.so.5.20.0
 /usr/lib64/libKF5KSieveUi.so.5
-/usr/lib64/libKF5KSieveUi.so.5.19.3
+/usr/lib64/libKF5KSieveUi.so.5.20.0
 /usr/lib64/qt5/plugins/kf5/kio/sieve.so
 
 %files license
 %defattr(0644,root,root,0755)
 /usr/share/package-licenses/libksieve/20079e8f79713dce80ab09774505773c926afa2a
-/usr/share/package-licenses/libksieve/29fb05b49e12a380545499938c4879440bd8851e
 /usr/share/package-licenses/libksieve/2a638514c87c4923c0570c55822620fad56f2a33
 /usr/share/package-licenses/libksieve/7ff5a7dd2c915b2b34329c892e06917c5f82f3a4
 /usr/share/package-licenses/libksieve/8287b608d3fa40ef401339fd907ca1260c964123
+/usr/share/package-licenses/libksieve/9950d3fdce1cff1f71212fb5abd31453c6ee2f8c
+/usr/share/package-licenses/libksieve/c085897bc39e05746ffd2d889a6e84ff1b7ae2d9
 /usr/share/package-licenses/libksieve/e712eadfab0d2357c0f50f599ef35ee0d87534cb
 
 %files locales -f kio_sieve.lang -f libksieve.lang
