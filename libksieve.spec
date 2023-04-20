@@ -6,7 +6,7 @@
 #
 Name     : libksieve
 Version  : 22.12.3
-Release  : 50
+Release  : 51
 URL      : https://download.kde.org/stable/release-service/22.12.3/src/libksieve-22.12.3.tar.xz
 Source0  : https://download.kde.org/stable/release-service/22.12.3/src/libksieve-22.12.3.tar.xz
 Source1  : https://download.kde.org/stable/release-service/22.12.3/src/libksieve-22.12.3.tar.xz.sig
