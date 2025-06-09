@@ -9,7 +9,7 @@
 #
 Name     : libksieve
 Version  : 25.04.1
-Release  : 114
+Release  : 115
 URL      : https://download.kde.org/stable/release-service/25.04.1/src/libksieve-25.04.1.tar.xz
 Source0  : https://download.kde.org/stable/release-service/25.04.1/src/libksieve-25.04.1.tar.xz
 Source1  : https://download.kde.org/stable/release-service/25.04.1/src/libksieve-25.04.1.tar.xz.sig
